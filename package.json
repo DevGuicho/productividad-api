@@ -1,0 +1,25 @@
+{
+  "name": "productividad-api",
+  "version": "1.0.0",
+  "description": "Api rest de la aplicacion de productividad",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevGuicho/productividad-api.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "javascript",
+    "api"
+  ],
+  "author": "Luis Vazquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevGuicho/productividad-api/issues"
+  },
+  "homepage": "https://github.com/DevGuicho/productividad-api#readme"
+}
