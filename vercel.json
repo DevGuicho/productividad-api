@@ -1,0 +1,12 @@
+{
+  "name": "productividad",
+  "version": 2,
+  "builds": [{ "src": "index.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/index.js" }],
+  "env": {
+    "DB_USER": "@productividad-db-user",
+    "DB_PASSWORD": "@productividad-db-password",
+    "DB_HOST": "@productividad-db-host",
+    "DB_NAME": "@productividad-db-name"
+  }
+}
