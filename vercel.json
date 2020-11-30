@@ -1,8 +1,19 @@
 {
   "name": "productividad",
+  "alias": ["productividad-devguicho-api"],
   "version": 2,
   "builds": [{ "src": "index.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/index.js" }],
+  "routes": [
+    {
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+      },
+      "src": "/(.*)",
+      "dest": "index.js"
+    }
+  ],
   "env": {
     "DB_USER": "@productividad-db-user",
     "DB_PASSWORD": "@productividad-db-password",

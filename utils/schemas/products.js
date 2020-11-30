@@ -15,6 +15,23 @@ const magazineDoiSchema = joi
   .string()
   .regex(/^.*(10\.[A-Za-z0-9.\/-]+)(?<!\.)(?=[ ]|\.).*$/);
 
+const congressProductSchema = joi.string().max(80);
+const dateProductSchema = joi.date();
+
+const bookTitleSchema = joi.string().max(80);
+const bookEditorialSchema = joi.string().max(80);
+const bookEditionSchema = joi.string().max(80);
+const bookDateSchema = joi.string().max(5);
+const bookIsbnSchema = joi
+  .string()
+  .regex(
+    /^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$/
+  );
+
+const developDetailsSchema = joi.string().max(1000);
+const developLicenceSchema = joi.string().max(80);
+const developDateSchema = joi.string().max(80);
+
 const MagazineSchema = {
   nombre: magazineProductSchema.required(),
   tipo: magazineTypeSchema.required(),
@@ -22,7 +39,22 @@ const MagazineSchema = {
   isnn: magazineIsnnSchema.required(),
   doi: magazineDoiSchema.required(),
 };
-
+const CongressSchema = {
+  nombre: congressProductSchema,
+  fecha: dateProductSchema,
+};
+const BookSchema = {
+  titulo: bookTitleSchema,
+  editorial: bookEditorialSchema,
+  edicion: bookEditionSchema,
+  fecha: bookDateSchema,
+  isbn: bookIsbnSchema,
+};
+const DevelopSchema = {
+  detalles: developDetailsSchema,
+  licencia: developLicenceSchema,
+  fecha: developDateSchema,
+};
 const createProductSchema = {
   id: productIdSchema.required(),
   titulo: productTitleSchema.required(),
@@ -31,6 +63,9 @@ const createProductSchema = {
   tesis: productTesisSchema.required(),
   type: productTypeSchema.required(),
   revista: MagazineSchema,
+  congreso: CongressSchema,
+  libro: BookSchema,
+  desarrollo: DevelopSchema,
 };
 const updateProductSchema = {
   id: productIdSchema,
@@ -40,6 +75,9 @@ const updateProductSchema = {
   tesis: productTesisSchema,
   type: productTypeSchema,
   revista: MagazineSchema,
+  congreso: CongressSchema,
+  libro: BookSchema,
+  desarrollo: DevelopSchema,
 };
 
 module.exports = {

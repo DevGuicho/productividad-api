@@ -11,7 +11,7 @@ const productsApi = (app) => {
   const router = express.Router();
   const productsServices = new ProductServices();
 
-  app.use('/api/products', router);
+  app.use('/products', router);
 
   router.get('/', async (req, res, next) => {
     const { tags } = req.query;
